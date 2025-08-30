@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # معرفات القنوات اللي لازم ينضم لها المستخدم
-REQUIRED_CHANNELS = ["@YourChannel1", "@YourChannel2"]
+REQUIRED_CHANNELS = ["@https://t.me/supreme_choice", "@https://t.me/supreme_choice"]
 
 
 # ✅ دالة التحقق من الاشتراك
@@ -31,8 +31,8 @@ async def check_subscription(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 # ✅ أمر /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [[InlineKeyboardButton("📢 اشترك بالقناة 1", url="https://t.me/YourChannel1")],
-                [InlineKeyboardButton("📢 اشترك بالقناة 2", url="https://t.me/YourChannel2")]]
+    keyboard = [[InlineKeyboardButton("📢 اشترك بالقناة 1", url="https://t.me/supreme_choice")],
+                [InlineKeyboardButton("📢 اشترك بالقناة 2", url="https://t.me/supreme_choice")]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text(
