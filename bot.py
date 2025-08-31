@@ -1,81 +1,104 @@
 import os
+import yt_dlp
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
-# جلب التوكن من المتغيرات البيئية في Railway
-TOKEN = os.getenv("BOT_TOKEN")
+# اقرأ التوكن من المتغير البيئي
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHANNEL_ID = "@supreme_choice"  # قناة الاشتراك الإجباري
 
-# معرف القناة المطلوب الاشتراك بها
-CHANNEL_USERNAME = "@supreme_choice"  # عدله لقناتك
-
-# دالة التحقق من الاشتراك
-async def check_subscription(user_id: int, context: ContextTypes.DEFAULT_TYPE) -> bool:
-    try:
-        member = await context.bot.get_chat_member(CHANNEL_USERNAME, user_id)
-        return member.status in ["member", "administrator", "creator"]
-    except Exception:
-        return False
-
-# دالة البدء
+# ----------------------- START -----------------------
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    if not await check_subscription(user_id, context):
-        keyboard = [[InlineKeyboardButton("📢 اشترك في القناة", url=f"https://t.me/{CHANNEL_USERNAME[1:]}")]]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-        await update.message.reply_text("⚠️ يجب أن تشترك بالقناة أولاً لتستخدم البوت:", reply_markup=reply_markup)
+
+    # تحقق من الاشتراك بالقناة
+    member = await context.bot.get_chat_member(CHANNEL_ID, user_id)
+    if member.status not in ["member", "administrator", "creator"]:
+        await update.message.reply_text(
+            "⚠️ يجب عليك الاشتراك في القناة أولاً:\n"
+            f"{CHANNEL_ID}\n\nثم اضغط /start"
+        )
         return
 
     keyboard = [
-        [InlineKeyboardButton("📥 تحميل (سناب + تيك توك)", callback_data="download_snaptok")],
-        [InlineKeyboardButton("📥 تحميل (انستغرام + فيسبوك)", callback_data="download_insta_fb")],
-        [InlineKeyboardButton("🎬 تحميل يوتيوب", callback_data="youtube_menu")]
+        [InlineKeyboardButton("📥 تحميل سناب & تيك توك", callback_data="snap_tiktok")],
+        [InlineKeyboardButton("📥 تحميل انستا & فيسبوك", callback_data="insta_fb")],
+        [InlineKeyboardButton("📥 تحميل يوتيوب", callback_data="youtube_menu")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("👋 أهلاً بك! اختر المنصة التي تريد التحميل منها:", reply_markup=reply_markup)
+    await update.message.reply_text("👋 أهلاً بك!\nاختر المنصة:", reply_markup=reply_markup)
 
-# القائمة الخاصة باليوتيوب
-async def youtube_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# ----------------------- MAIN MENU HANDLER -----------------------
+async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    keyboard = [
-        [InlineKeyboardButton("🔽 دقة منخفضة", callback_data="yt_low")],
-        [InlineKeyboardButton("🔼 دقة عالية", callback_data="yt_high")],
-        [InlineKeyboardButton("🎨 دقة عالية + فلتر", callback_data="yt_high_filter")],
-        [InlineKeyboardButton("✨ فلتر فقط", callback_data="yt_filter")],
-        [InlineKeyboardButton("⬅️ رجوع", callback_data="back_main")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await query.edit_message_text("🎬 اختر دقة الفيديو أو الإجراء المطلوب:", reply_markup=reply_markup)
-
-# التعامل مع الأزرار
-async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
-
-    if query.data == "download_snaptok":
-        await query.edit_message_text("📥 أرسل رابط من سناب شات أو تيك توك للتحميل.")
-    elif query.data == "download_insta_fb":
-        await query.edit_message_text("📥 أرسل رابط من إنستغرام أو فيسبوك للتحميل.")
+    if query.data == "snap_tiktok":
+        await query.edit_message_text("📥 أرسل رابط من **سناب أو تيك توك** للتحميل.")
+    elif query.data == "insta_fb":
+        await query.edit_message_text("📥 أرسل رابط من **انستغرام أو فيسبوك** للتحميل.")
     elif query.data == "youtube_menu":
-        await youtube_menu(update, context)
+        keyboard = [
+            [InlineKeyboardButton("🎬 1080p", callback_data="yt_1080")],
+            [InlineKeyboardButton("🎬 720p", callback_data="yt_720")],
+            [InlineKeyboardButton("🎬 480p", callback_data="yt_480")],
+            [InlineKeyboardButton("🎬 360p", callback_data="yt_360")],
+            [InlineKeyboardButton("🎬 240p", callback_data="yt_240")],
+            [InlineKeyboardButton("🎬 144p", callback_data="yt_144")],
+            [InlineKeyboardButton("◀️ رجوع", callback_data="back_main")]
+        ]
+        await query.edit_message_text("اختر دقة الفيديو:", reply_markup=InlineKeyboardMarkup(keyboard))
     elif query.data == "back_main":
         await start(update, context)
+
+# ----------------------- YOUTUBE DOWNLOAD -----------------------
+async def youtube_download(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    quality = query.data.split("_")[1]  # مثال yt_720 → 720
+
+    context.user_data["yt_quality"] = quality
+    await query.edit_message_text(
+        f"🎬 اخترت دقة {quality}p.\n\n📩 الآن أرسل رابط اليوتيوب."
+    )
+
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    text = update.message.text
+
+    # إذا كان المستخدم اختار دقة من يوتيوب
+    if "yt_quality" in context.user_data:
+        quality = context.user_data["yt_quality"]
+        await update.message.reply_text("⏳ جاري التحميل من يوتيوب...")
+
+        ydl_opts = {
+            "format": f"bestvideo[height<={quality}]+bestaudio/best[height<={quality}]",
+            "outtmpl": "%(title)s.%(ext)s"
+        }
+
+        try:
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(text, download=True)
+                file_name = ydl.prepare_filename(info)
+
+            await update.message.reply_video(video=open(file_name, "rb"))
+            os.remove(file_name)
+
+        except Exception as e:
+            await update.message.reply_text(f"⚠️ خطأ: {e}")
+
+        del context.user_data["yt_quality"]
+
     else:
-        await query.edit_message_text(f"✅ تم اختيار: {query.data}\n\nالآن أرسل الرابط للتحميل.")
+        await update.message.reply_text("📩 أرسل رابط صحيح للتحميل.")
 
-# استقبال الروابط
-async def handle_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    url = update.message.text
-    await update.message.reply_text(f"📌 استلمت الرابط:\n{url}\n\n⚙️ جاري التحميل ... (محاكاة)")
-
-# تشغيل البوت
+# ----------------------- MAIN -----------------------
 def main():
-    app = Application.builder().token(TOKEN).build()
+    app = Application.builder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CallbackQueryHandler(button_handler))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_links))
+    app.add_handler(CallbackQueryHandler(menu_handler, pattern="^(snap_tiktok|insta_fb|youtube_menu|back_main)$"))
+    app.add_handler(CallbackQueryHandler(youtube_download, pattern="^yt_"))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     app.run_polling()
 
