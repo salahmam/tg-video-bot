@@ -4,7 +4,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 import requests
 import yt_dlp
 
-TOKEN = "ضع_توكن_البوت_هنا"
+TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_USERNAME = "@supreme_choice"  # غيّرها لاسم قناتك
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
