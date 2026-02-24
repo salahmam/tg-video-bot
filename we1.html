@@ -3,98 +3,97 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hemo Max - دقة عالية</title>
+  <title>ماسك السدر الملكي - لشعر كثيف وصحي</title>
+  
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  
   <style>
-    * { font-family: 'Tajawal', sans-serif; }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #0d9488 0%, #065f46 50%, #064e3b 100%);
-    }
-    
-    /* تأثير تنعيم أطراف الصورة */
-    .soft-edges {
-      mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-      -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-    }
-
-    .float-animation {
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    .pulse-btn {
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-      50% { box-shadow: 0 0 0 20px rgba(245, 158, 11, 0); }
-    }
-
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+    * { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; }
+    .pink-gradient { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%); }
+    .glass-pink { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); }
+    .order-card { background: white; border-radius: 3rem; border: 2px solid #f472b6; }
+    .pink-btn { background-color: #db2777; color: white; border-bottom: 4px solid #9d174d; }
+    .pink-btn:hover { background-color: #be185d; }
+    .pulse-pink { animation: pulse-p 2s infinite; }
+    @keyframes pulse-p { 0% { box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(219, 39, 119, 0); } 100% { box-shadow: 0 0 0 0 rgba(219, 39, 119, 0); } }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
   </style>
  </head>
- <body class="h-full overflow-auto">
-  <div class="gradient-bg min-h-full w-full relative overflow-hidden flex flex-col items-center justify-center p-6 lg:p-12">
-   
-   <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-emerald-400 opacity-20 blur-[120px] rounded-full"></div>
-   <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-teal-300 opacity-20 blur-[120px] rounded-full"></div>
+ <body class="bg-[#fff1f2] text-gray-800">
 
-   <div class="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 max-w-7xl w-full">
+  <div class="pink-gradient min-h-screen">
     
-    <div class="flex-1 text-center lg:text-right order-2 lg:order-1">
-     <div class="inline-flex items-center gap-2 bg-amber-500 text-white px-5 py-2 rounded-full text-sm font-bold mb-6 shadow-xl">
-      <span>⭐ دقة عالية وضمان حقيقي</span>
-     </div>
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row items-center gap-12">
+      <div class="flex-1 text-center lg:text-right">
+        <div class="inline-block bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-6 italic shadow-md">🌸 سر جمال شعرك الطبيعي</div>
+        <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight text-pink-900 italic">ماسك السدر <br><span class="text-pink-600">لتكثيف الشعر</span></h1>
+        <p class="text-xl mb-10 text-pink-800 font-medium">استعيدي حيوية شعرك وملء الفراغات بخلطة السدر الأصلية المنقاة بعناية.</p>
+        
+        <div class="flex flex-col items-center lg:items-start gap-4 mb-10 text-lg">
+            <a href="#orderSection" class="w-full max-w-sm p-5 rounded-2xl pink-btn font-black flex items-center justify-center gap-2 transition-all pulse-pink shadow-2xl">🛍️ احصلي عليه الآن</a>
+        </div>
+      </div>
 
-     <h1 class="text-4xl lg:text-6xl xl:text-7xl font-black text-white mb-6 leading-tight drop-shadow-md">
-      عصارة هيمو ماكس <br>
-      <span class="text-amber-400 text-3xl lg:text-5xl">الحل النهائي للبواسير</span>
-     </h1>
-
-     <div class="glass-effect p-6 rounded-3xl inline-block mb-10 shadow-2xl">
-      <p class="text-emerald-200 text-lg mb-1">السعر في العراق</p>
-      <div class="text-5xl font-black text-yellow-400">15,000 د.ع</div>
-     </div>
-
-     <div class="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start">
-      <a href="https://wa.me/9647710011031?text=اريد+طلب+هيمو+ماكس" 
-         class="pulse-btn bg-gradient-to-r from-amber-500 to-amber-600 text-white text-2xl font-black py-5 px-12 rounded-full shadow-2xl transition-transform transform hover:scale-105">
-        🛒 اطلب الآن عبر واتساب
-      </a>
-     </div>
+      <div class="flex-1 w-full max-w-lg">
+        <div class="video-container border-4 border-white">
+          <iframe src="https://www.youtube.com/embed/3dPm1gvPCJs?rel=0&modestbranding=1" allowfullscreen></iframe>
+        </div>
+        <p class="text-center text-sm mt-4 text-pink-700 font-bold italic">✨ شاهدي طريقة التحضير والنتائج</p>
+      </div>
     </div>
 
-    <div class="flex-1 flex items-center justify-center order-1 lg:order-2">
-     <div class="relative float-animation">
-      <div class="absolute inset-0 bg-emerald-500 opacity-40 blur-[100px] rounded-full scale-90"></div>
-      
-      <img src="image-name.jpg" 
-           alt="Hemo Max" 
-           class="relative z-10 w-80 lg:w-[550px] h-auto object-contain soft-edges drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
-           onerror="this.src='https://via.placeholder.com/500x500/065f46/ffffff?text=Image+Not+Found'">
-     </div>
+    <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="glass-pink p-8 rounded-3xl">
+            <div class="text-4xl mb-4">🌱</div>
+            <h2 class="text-xl font-black text-pink-900 mb-2">طبيعي 100%</h2>
+            <p class="text-sm text-pink-800 italic">سدر أصلي منقى من الشوائب ومطحون بدقة لسهولة الغسل.</p>
+        </div>
+        <div class="glass-pink p-8 rounded-3xl shadow-xl transform scale-105 bg-white/50 border-pink-300">
+            <div class="text-4xl mb-4">✨</div>
+            <h2 class="text-xl font-black text-pink-900 mb-2">تكثيف وتطويل</h2>
+            <p class="text-sm text-pink-800 italic">يعمل على تحفيز البصيلات وملء الفراغات من الأسبوع الثاني.</p>
+        </div>
+        <div class="glass-pink p-8 rounded-3xl">
+            <div class="text-4xl mb-4">💧</div>
+            <h2 class="text-xl font-black text-pink-900 mb-2">نعومة ولمعان</h2>
+            <p class="text-sm text-pink-800 italic">يمنح شعرك لمعاناً طبيعياً ويقضي على القشرة تماماً.</p>
+        </div>
     </div>
 
-   </div>
+    <div id="orderSection" class="max-w-4xl mx-auto px-6 py-20">
+        <div class="order-card p-10 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-2 bg-pink-500"></div>
+          <h3 class="text-3xl font-black text-center mb-8 italic text-pink-900 border-b pb-4 border-pink-100">استمارة الطلب السريع 🚚</h3>
+          
+          <form id="orderForm" class="space-y-4">
+            <input type="text" id="name" required placeholder="الاسم الكامل" class="w-full p-5 rounded-2xl bg-pink-50 border border-pink-200 text-pink-900 outline-none focus:ring-2 focus:ring-pink-400 transition-all">
+            <input type="tel" id="phone" required placeholder="رقم الهاتف (واتساب)" class="w-full p-5 rounded-2xl bg-pink-50 border border-pink-200 text-pink-900 outline-none focus:ring-2 focus:ring-pink-400 transition-all">
+            <input type="text" id="address" required placeholder="العنوان (المحافظة - المنطقة)" class="w-full p-5 rounded-2xl bg-pink-50 border border-pink-200 text-pink-900 outline-none focus:ring-2 focus:ring-pink-400 transition-all">
+            
+            <div class="p-6 bg-pink-50 rounded-[2rem] border border-pink-100 mt-6 flex justify-between items-center">
+                <div class="text-right">
+                    <p class="text-pink-900 font-bold">السعر: 25,000 د.ع</p>
+                    <p class="text-pink-600 text-sm italic">توصيل مجاني لفترة محدودة 🎁</p>
+                </div>
+                <div class="text-center">
+                    <label class="block text-xs text-pink-500 font-bold mb-1">الكمية:</label>
+                    <input type="number" id="quantity" value="1" min="1" class="w-20 p-3 rounded-xl border-2 border-pink-400 bg-white text-pink-900 font-black text-center">
+                </div>
+            </div>
 
-   <div class="mt-16 lg:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl relative z-10">
-    <div class="glass-effect p-4 rounded-2xl text-center text-white font-bold">🚚 توصيل سريع</div>
-    <div class="glass-effect p-4 rounded-2xl text-center text-white font-bold">🌿 طبيعي 100%</div>
-    <div class="glass-effect p-4 rounded-2xl text-center text-white font-bold">📦 دفع عند الاستلام</div>
-    <div class="glass-effect p-4 rounded-2xl text-center text-white font-bold">✅ جودة فائقة</div>
-   </div>
-
+            <button type="submit" id="submitBtn" class="w-full p-6 rounded-3xl pink-btn font-black text-2xl shadow-xl transition-all mt-6">تأكيد طلب الماسك</button>
+          </form>
+          
+          <p id="statusMsg" class="mt-6 text-pink-600 font-bold text-center text-xl hidden italic">🌸 شكراً لثقتك! سنتواصل معكِ حالاً.</p>
+        </div>
+    </div>
+    
+    <footer class="text-center py-10 text-pink-400 text-sm">
+        جميع الحقوق محفوظة - ماسك السدر الملكي © 2026
+    </footer>
   </div>
+
  </body>
 </html>
