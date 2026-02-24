@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
   
   <style>
-    /* تحسين الخطوط وزيادة سماكتها ووضوحها */
     * { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; line-height: 1.6; }
     .pink-gradient { background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%); }
     .glass-pink { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 2px solid rgba(244, 114, 182, 0.3); }
@@ -18,16 +17,24 @@
     .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 30px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(219, 39, 119, 0.25); }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     
-    /* أحجام خطوط مخصصة للوضوح */
+    /* جعل الشريط العلوي ثابتاً */
+    .sticky-bar { 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      backdrop-filter: blur(5px);
+    }
+    
     .hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; }
-    .section-title { font-size: 2.2rem; font-weight: 900; }
     .text-main { font-size: 1.25rem; font-weight: 500; }
   </style>
  </head>
  <body class="pink-gradient text-[#30101a] overflow-x-hidden">
 
-  <div class="bg-pink-600 text-white text-center py-3 text-lg font-black shadow-lg">
-    🔥 عرض خاص: توصيل مجاني عند طلب عبوتين أو أكثر!
+  <div class="sticky-bar bg-pink-600/95 text-white text-center py-3 text-lg font-black shadow-lg">
+    <a href="#orderSection">
+      🔥 عرض خاص: توصيل مجاني عند طلب عبوتين أو أكثر! <span class="underline ml-2 text-pink-200">اطلبي الآن</span>
+    </a>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 py-12">
@@ -52,7 +59,7 @@
             <h3 class="text-xl font-black text-pink-900 mb-3">سدر أصلي</h3>
             <p class="text-base font-bold text-pink-700">منقى يدوياً ومطحون بدقة لضمان سهولة الغسل.</p>
         </div>
-        <div class="glass-pink p-8 rounded-[2.5rem] text-center border-pink-400">
+        <div class="glass-pink p-8 rounded-[2.5rem] text-center border-pink-400 shadow-xl">
             <div class="text-5xl mb-4">🧪</div>
             <h3 class="text-xl font-black text-pink-900 mb-3">بديل كيميائي آمن</h3>
             <p class="text-base font-bold text-pink-700">خالي من الأمونيا والسلفات التي ترهق البصيلات.</p>
@@ -70,44 +77,30 @@
     </div>
 
     <div class="mb-24 text-center">
-        <h2 class="section-title text-pink-900 mb-12 italic">تجارب ملكات السدر 🌸</h2>
+        <h2 class="text-3xl font-black text-pink-900 mb-12 italic">تجارب ملكات السدر 🌸</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 italic">
             <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-pink-100">
                 <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p class="text-lg font-bold text-gray-700 mb-6">"صارلي سنتين أعاني من تساقط، والآن الفراغات بدأت تختفي. أحلى شي إنه يغسل بسهولة!"</p>
+                <p class="text-lg font-bold text-gray-700 mb-6">"صارلي سنتين أعاني من تساقط، والآن الفراغات بدأت تختفي. يغسل بسهولة!"</p>
                 <p class="font-black text-pink-600 text-base">— أم ريتاج، البصرة</p>
             </div>
             <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-b-8 border-pink-200 scale-105 bg-pink-50/30">
                 <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p class="text-lg font-bold text-gray-700 mb-6">"الماسك ريحته نظافة ويخلي الشعر يلمع. فرق واضح بالطول خلال شهر واحد فقط."</p>
+                <p class="text-lg font-bold text-gray-700 mb-6">"الماسك ريحته نظافة ويخلي الشعر يلمع. فرق واضح بالطول خلال شهر فقط."</p>
                 <p class="font-black text-pink-600 text-base">— نور الهدى، بغداد</p>
             </div>
             <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-pink-100">
                 <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p class="text-lg font-bold text-gray-700 mb-6">"جربت خلطات كثيرة بس هذا المنتج الوحيد اللي ما جفف شعري. أنصح كل وحدة به."</p>
+                <p class="text-lg font-bold text-gray-700 mb-6">"جربت خلطات كثيرة بس هذا المنتج الوحيد اللي ما جفف شعري. أنصحكم به."</p>
                 <p class="font-black text-pink-600 text-base">— سارة، أربيل</p>
             </div>
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto mb-24 text-right">
-        <h2 class="text-3xl font-black text-pink-900 mb-8 text-center">أسئلة شائعة 💡</h2>
-        <div class="space-y-6">
-            <details class="glass-pink p-6 rounded-3xl cursor-pointer group">
-                <summary class="text-xl font-black text-pink-900 list-none flex justify-between">هل المنتج يسبب جفاف للشعر؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
-                <p class="text-lg mt-4 text-pink-800 font-bold border-t border-pink-200 pt-4">على العكس تماماً، تركيبتنا تحتوي على زيوت مرطبة توازن السدر وتترك شعرك ناعماً كالحرير.</p>
-            </details>
-            <details class="glass-pink p-6 rounded-3xl cursor-pointer group">
-                <summary class="text-xl font-black text-pink-900 list-none flex justify-between">متى تظهر نتائج التكثيف؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
-                <p class="text-lg mt-4 text-pink-800 font-bold border-t border-pink-200 pt-4">النعومة تظهر فوراً، أما إنبات الشعر في الفراغات فيبدأ من الأسبوع الثاني للالتزام مرتين أسبوعياً.</p>
-            </details>
-        </div>
-    </div>
-
-    <div id="orderSection" class="max-w-3xl mx-auto">
+    <div id="orderSection" class="max-w-3xl mx-auto py-10">
         <div class="bg-white p-12 rounded-[4rem] shadow-2xl border-4 border-pink-50 relative">
             <div class="absolute -top-6 -right-6 bg-pink-500 text-white px-6 py-3 rounded-2xl rotate-12 font-black text-xl shadow-xl">توصيل مجاني 🎁</div>
-            <h3 class="text-3xl font-black text-center mb-10 text-pink-900 italic">احجزي الآن لشعر أحلامك</h3>
+            <h3 class="text-3xl font-black text-center mb-10 text-pink-900 italic uppercase">احجزي الآن لشعر أحلامك</h3>
             <form id="orderForm" class="space-y-6 text-right">
                 <input type="text" id="name" required placeholder="الاسم الكامل" class="w-full p-6 rounded-2xl bg-pink-50 border-2 border-transparent focus:border-pink-400 outline-none font-bold text-xl transition-all">
                 <input type="tel" id="phone" required placeholder="رقم الهاتف" class="w-full p-6 rounded-2xl bg-pink-50 border-2 border-transparent focus:border-pink-400 outline-none font-bold text-xl transition-all">
@@ -124,7 +117,7 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="w-full p-8 rounded-[2.5rem] pink-btn font-black text-3xl shadow-2xl mt-8">تأكيد الحجز النهائي</button>
+                <button type="submit" class="w-full p-8 rounded-[2.5rem] pink-btn font-black text-3xl shadow-2xl mt-8 transition-transform active:scale-95">تأكيد الحجز النهائي</button>
             </form>
         </div>
     </div>
