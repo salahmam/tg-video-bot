@@ -6,126 +6,131 @@
   <title>ماسك السدر الملكي - العناية المتكاملة بالشعر</title>
   
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
   
   <style>
-    * { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; }
+    /* تحسين الخطوط وزيادة سماكتها ووضوحها */
+    * { font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; line-height: 1.6; }
     .pink-gradient { background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 100%); }
-    .glass-pink { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(244, 114, 182, 0.2); }
-    .pink-btn { background-color: #db2777; color: white; border-bottom: 4px solid #9d174d; transition: all 0.3s; }
-    .pink-btn:hover { background-color: #be185d; transform: translateY(-2px); }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(219, 39, 119, 0.15); }
+    .glass-pink { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 2px solid rgba(244, 114, 182, 0.3); }
+    .pink-btn { background-color: #db2777; color: white; border-bottom: 5px solid #9d174d; transition: all 0.3s; }
+    .pink-btn:hover { background-color: #be185d; transform: scale(1.02); }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 30px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(219, 39, 119, 0.25); }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .badge-pink { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+    
+    /* أحجام خطوط مخصصة للوضوح */
+    .hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; }
+    .section-title { font-size: 2.2rem; font-weight: 900; }
+    .text-main { font-size: 1.25rem; font-weight: 500; }
   </style>
  </head>
- <body class="pink-gradient text-gray-800 overflow-x-hidden">
+ <body class="pink-gradient text-[#30101a] overflow-x-hidden">
 
-  <div class="bg-pink-600 text-white text-center py-2 text-sm font-bold shadow-md">
-    🔥 عرض خاص: احصلي على توصيل مجاني عند طلب عبوتين أو أكثر!
+  <div class="bg-pink-600 text-white text-center py-3 text-lg font-black shadow-lg">
+    🔥 عرض خاص: توصيل مجاني عند طلب عبوتين أو أكثر!
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 py-10">
-    <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col lg:flex-row items-center gap-14 mb-24">
       <div class="flex-1 text-center lg:text-right">
-        <span class="badge-pink px-4 py-1 rounded-full text-xs font-bold mb-4 inline-block">✨ الأكثر مبيعاً في الخليج والعراق</span>
-        <h1 class="text-5xl lg:text-6xl font-black mb-6 leading-tight text-pink-900 italic">وداعاً للفراغات مع <br><span class="text-pink-600">ماسك السدر الملكي</span></h1>
-        <p class="text-lg mb-8 text-pink-800 leading-relaxed">خلطة السدر الأصلية المعززة بالأعشاب الطبيعية لتكثيف الشعر ومنع التساقط من الأسبوع الأول.</p>
-        <a href="#orderSection" class="inline-block w-full max-w-sm p-5 rounded-2xl pink-btn font-black text-center text-xl shadow-xl">🛒 اطلبي الآن - دفع عند الاستلام</a>
+        <span class="bg-white border-2 border-pink-200 text-pink-600 px-6 py-2 rounded-full text-sm font-black mb-6 inline-block shadow-sm">✨ المنتج الأصلي الأكثر طلباً</span>
+        <h1 class="hero-title mb-8 leading-[1.1] text-pink-900 italic">وداعاً للفراغات مع <br><span class="text-pink-600">ماسك السدر الملكي</span></h1>
+        <p class="text-main mb-10 text-pink-800 leading-relaxed max-w-2xl mx-auto lg:mx-0">خلطة السدر الأصلية المعززة بالأعشاب الطبيعية لتكثيف الشعر ومنع التساقط من الأسبوع الأول.</p>
+        <a href="#orderSection" class="inline-block w-full max-w-md p-6 rounded-[2rem] pink-btn font-black text-center text-2xl shadow-2xl">🛒 اطلبي الآن - دفع عند الاستلام</a>
       </div>
 
-      <div class="flex-1 w-full max-w-lg">
-        <div class="video-container">
+      <div class="flex-1 w-full max-w-xl">
+        <div class="video-container border-8 border-white">
           <iframe src="https://www.youtube.com/embed/3dPm1gvPCJs?rel=0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-        <div class="glass-pink p-6 rounded-3xl text-center">
-            <div class="text-3xl mb-3 text-pink-500">🌿</div>
-            <h3 class="font-bold text-pink-900 mb-2">سدر أصلي</h3>
-            <p class="text-xs text-pink-700">مطحون ومنخل بعناية لضمان سهولة الغسل دون ترك رواسب.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <div class="glass-pink p-8 rounded-[2.5rem] text-center">
+            <div class="text-5xl mb-4">🌿</div>
+            <h3 class="text-xl font-black text-pink-900 mb-3">سدر أصلي</h3>
+            <p class="text-base font-bold text-pink-700">منقى يدوياً ومطحون بدقة لضمان سهولة الغسل.</p>
         </div>
-        <div class="glass-pink p-6 rounded-3xl text-center">
-            <div class="text-3xl mb-3 text-pink-500">🧪</div>
-            <h3 class="font-bold text-pink-900 mb-2">بديل كيميائي آمن</h3>
-            <p class="text-xs text-pink-700">خالي تماماً من الأمونيا والسلفات التي ترهق بصيلات الشعر.</p>
+        <div class="glass-pink p-8 rounded-[2.5rem] text-center border-pink-400">
+            <div class="text-5xl mb-4">🧪</div>
+            <h3 class="text-xl font-black text-pink-900 mb-3">بديل كيميائي آمن</h3>
+            <p class="text-base font-bold text-pink-700">خالي من الأمونيا والسلفات التي ترهق البصيلات.</p>
         </div>
-        <div class="glass-pink p-6 rounded-3xl text-center">
-            <div class="text-3xl mb-3 text-pink-500">💧</div>
-            <h3 class="font-bold text-pink-900 mb-2">ترطيب عميق</h3>
-            <p class="text-xs text-pink-700">يحتوي على زيوت طبيعية تمنع جفاف الشعر بعد استخدام السدر.</p>
+        <div class="glass-pink p-8 rounded-[2.5rem] text-center">
+            <div class="text-5xl mb-4">💧</div>
+            <h3 class="text-xl font-black text-pink-900 mb-3">ترطيب مكثف</h3>
+            <p class="text-base font-bold text-pink-700">زيوت طبيعية تمنع جفاف الشعر بعد الاستخدام.</p>
         </div>
-        <div class="glass-pink p-6 rounded-3xl text-center">
-            <div class="text-3xl mb-3 text-pink-500">🚀</div>
-            <h3 class="font-bold text-pink-900 mb-2">نتائج سريعة</h3>
-            <p class="text-xs text-pink-700">ملاحظة كثافة ولمعان من ثاني استخدام بفضل تقنية الامتصاص.</p>
-        </div>
-    </div>
-
-    <div class="mb-20 text-center">
-        <h2 class="text-3xl font-black text-pink-900 mb-10 italic">تجارب ملكات السدر 🌸</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-3xl shadow-lg relative border-b-4 border-pink-200">
-                <div class="text-amber-400 mb-3">⭐⭐⭐⭐⭐</div>
-                <p class="text-sm italic text-gray-600 mb-4">"صارلي سنتين أعاني من تساقط، والآن الفراغات بدأت تختفي. أحلى شي إنه يغسل بسهولة!"</p>
-                <p class="font-bold text-pink-600 text-xs">- أم ريتاج، البصرة</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-lg relative border-b-4 border-pink-200 scale-105 z-10">
-                <div class="text-amber-400 mb-3">⭐⭐⭐⭐⭐</div>
-                <p class="text-sm italic text-gray-600 mb-4">"الماسك ريحته نظافة ويخلي الشعر يلمع. فرق واضح بالطول خلال شهر واحد فقط."</p>
-                <p class="font-bold text-pink-600 text-xs">- نور الهدى، بغداد</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-lg relative border-b-4 border-pink-200">
-                <div class="text-amber-400 mb-3">⭐⭐⭐⭐⭐</div>
-                <p class="text-sm italic text-gray-600 mb-4">"جربت خلطات كثيرة بس هذا المنتج الوحيد اللي ما جفف شعري. أنصح كل وحدة به."</p>
-                <p class="font-bold text-pink-600 text-xs">- سارة، أربيل</p>
-            </div>
+        <div class="glass-pink p-8 rounded-[2.5rem] text-center">
+            <div class="text-5xl mb-4">🚀</div>
+            <h3 class="text-xl font-black text-pink-900 mb-3">نتائج ملموسة</h3>
+            <p class="text-base font-bold text-pink-700">كثافة ملحوظة من ثاني استخدام بفضل التقنية المطورة.</p>
         </div>
     </div>
 
-    <div class="max-w-3xl mx-auto mb-20">
-        <h2 class="text-2xl font-black text-pink-900 mb-6 text-center">أسئلة تهمك 💡</h2>
-        <div class="space-y-4">
-            <details class="glass-pink p-4 rounded-2xl cursor-pointer group">
-                <summary class="font-bold text-pink-900 list-none flex justify-between">هل المنتج يسبب جفاف للشعر؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
-                <p class="text-sm mt-3 text-pink-800 italic">على العكس، تركيبتنا مضاف إليها زيوت مرطبة توازن السدر وتترك شعرك ناعماً وحيوياً.</p>
+    <div class="mb-24 text-center">
+        <h2 class="section-title text-pink-900 mb-12 italic">تجارب ملكات السدر 🌸</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 italic">
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-pink-100">
+                <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-lg font-bold text-gray-700 mb-6">"صارلي سنتين أعاني من تساقط، والآن الفراغات بدأت تختفي. أحلى شي إنه يغسل بسهولة!"</p>
+                <p class="font-black text-pink-600 text-base">— أم ريتاج، البصرة</p>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-b-8 border-pink-200 scale-105 bg-pink-50/30">
+                <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-lg font-bold text-gray-700 mb-6">"الماسك ريحته نظافة ويخلي الشعر يلمع. فرق واضح بالطول خلال شهر واحد فقط."</p>
+                <p class="font-black text-pink-600 text-base">— نور الهدى، بغداد</p>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-pink-100">
+                <div class="text-amber-400 text-2xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p class="text-lg font-bold text-gray-700 mb-6">"جربت خلطات كثيرة بس هذا المنتج الوحيد اللي ما جفف شعري. أنصح كل وحدة به."</p>
+                <p class="font-black text-pink-600 text-base">— سارة، أربيل</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mb-24 text-right">
+        <h2 class="text-3xl font-black text-pink-900 mb-8 text-center">أسئلة شائعة 💡</h2>
+        <div class="space-y-6">
+            <details class="glass-pink p-6 rounded-3xl cursor-pointer group">
+                <summary class="text-xl font-black text-pink-900 list-none flex justify-between">هل المنتج يسبب جفاف للشعر؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
+                <p class="text-lg mt-4 text-pink-800 font-bold border-t border-pink-200 pt-4">على العكس تماماً، تركيبتنا تحتوي على زيوت مرطبة توازن السدر وتترك شعرك ناعماً كالحرير.</p>
             </details>
-            <details class="glass-pink p-4 rounded-2xl cursor-pointer group">
-                <summary class="font-bold text-pink-900 list-none flex justify-between">متى تظهر نتائج التكثيف؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
-                <p class="text-sm mt-3 text-pink-800 italic">يظهر اللمعان والنعومة فوراً، أما إنبات الفراغات فيبدأ ملاحظته من الأسبوع الثاني للالتزام (مرتين أسبوعياً).</p>
+            <details class="glass-pink p-6 rounded-3xl cursor-pointer group">
+                <summary class="text-xl font-black text-pink-900 list-none flex justify-between">متى تظهر نتائج التكثيف؟ <span class="group-open:rotate-180 transition-transform">▼</span></summary>
+                <p class="text-lg mt-4 text-pink-800 font-bold border-t border-pink-200 pt-4">النعومة تظهر فوراً، أما إنبات الشعر في الفراغات فيبدأ من الأسبوع الثاني للالتزام مرتين أسبوعياً.</p>
             </details>
         </div>
     </div>
 
-    <div id="orderSection" class="max-w-2xl mx-auto">
-        <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-2 border-pink-100 relative">
-            <div class="absolute -top-4 -right-4 bg-pink-500 text-white p-3 rounded-2xl rotate-12 font-bold shadow-lg">التوصيل مجاني 🎁</div>
-            <h3 class="text-2xl font-black text-center mb-8 text-pink-900">احجزي الآن واستمتعي بشعر أحلامك</h3>
-            <form id="orderForm" class="space-y-4 text-right">
-                <input type="text" id="name" required placeholder="الاسم الكامل" class="w-full p-4 rounded-xl bg-pink-50 border-none outline-none focus:ring-2 focus:ring-pink-400">
-                <input type="tel" id="phone" required placeholder="رقم الهاتف" class="w-full p-4 rounded-xl bg-pink-50 border-none outline-none focus:ring-2 focus:ring-pink-400">
-                <input type="text" id="address" required placeholder="المحافظة والمنطقة" class="w-full p-4 rounded-xl bg-pink-50 border-none outline-none focus:ring-2 focus:ring-pink-400">
+    <div id="orderSection" class="max-w-3xl mx-auto">
+        <div class="bg-white p-12 rounded-[4rem] shadow-2xl border-4 border-pink-50 relative">
+            <div class="absolute -top-6 -right-6 bg-pink-500 text-white px-6 py-3 rounded-2xl rotate-12 font-black text-xl shadow-xl">توصيل مجاني 🎁</div>
+            <h3 class="text-3xl font-black text-center mb-10 text-pink-900 italic">احجزي الآن لشعر أحلامك</h3>
+            <form id="orderForm" class="space-y-6 text-right">
+                <input type="text" id="name" required placeholder="الاسم الكامل" class="w-full p-6 rounded-2xl bg-pink-50 border-2 border-transparent focus:border-pink-400 outline-none font-bold text-xl transition-all">
+                <input type="tel" id="phone" required placeholder="رقم الهاتف" class="w-full p-6 rounded-2xl bg-pink-50 border-2 border-transparent focus:border-pink-400 outline-none font-bold text-xl transition-all">
+                <input type="text" id="address" required placeholder="المحافظة والمنطقة" class="w-full p-6 rounded-2xl bg-pink-50 border-2 border-transparent focus:border-pink-400 outline-none font-bold text-xl transition-all">
                 
-                <div class="bg-pink-900 text-white p-5 rounded-2xl mt-6 flex justify-between items-center">
+                <div class="bg-pink-900 text-white p-8 rounded-[2.5rem] mt-10 flex justify-between items-center shadow-inner">
                     <div>
-                        <p class="text-xs opacity-70">المجموع النهائي:</p>
-                        <p class="text-2xl font-black text-pink-300">25,000 د.ع</p>
+                        <p class="text-sm font-bold opacity-80 mb-1">المجموع الصافي:</p>
+                        <p class="text-4xl font-black text-pink-300">25,000 د.ع</p>
                     </div>
                     <div class="text-center">
-                        <label class="text-[10px] block mb-1">الكمية:</label>
-                        <input type="number" id="quantity" value="1" min="1" class="w-16 p-2 rounded-lg bg-pink-800 border-none text-center font-bold">
+                        <label class="text-xs block font-black mb-2 opacity-80 uppercase">الكمية</label>
+                        <input type="number" id="quantity" value="1" min="1" class="w-20 p-3 rounded-xl bg-pink-800 border-2 border-pink-700 text-center font-black text-2xl">
                     </div>
                 </div>
                 
-                <button type="submit" class="w-full p-6 rounded-2xl pink-btn font-black text-xl shadow-lg mt-4">تأكيد الحجز الآن</button>
+                <button type="submit" class="w-full p-8 rounded-[2.5rem] pink-btn font-black text-3xl shadow-2xl mt-8">تأكيد الحجز النهائي</button>
             </form>
         </div>
     </div>
 
-    <footer class="text-center py-12 text-pink-400 text-xs">
-        ماسك السدر الملكي © 2026 - العناية التي يستحقها شعرك
+    <footer class="text-center py-16 text-pink-400 font-bold text-base italic">
+        ماسك السدر الملكي © 2026 - لأن شعرك سر جمالك
     </footer>
   </div>
 
